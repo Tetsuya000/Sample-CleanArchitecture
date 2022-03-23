@@ -1,4 +1,4 @@
-package jp.gr.java.conf.tmproject.sampletemplate
+package jp.gr.java.conf.tmproject.samplecleanarchitecture.presentation.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,8 +7,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import jp.gr.java.conf.tmproject.sampletemplate.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
+import jp.gr.java.conf.tmproject.samplecleanarchitecture.R
+import jp.gr.java.conf.tmproject.samplecleanarchitecture.databinding.ActivityMainBinding
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -17,10 +20,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setNavController()
+        setUpNavController()
     }
 
-    private fun setNavController() {
+    private fun setUpNavController() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_main)
         val appBarConfiguration =

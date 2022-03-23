@@ -1,12 +1,14 @@
-package jp.gr.java.conf.tmproject.sampletemplate.ui.notifications
+package jp.gr.java.conf.tmproject.samplecleanarchitecture.presentation.ui.notifications
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import jp.gr.java.conf.tmproject.sampletemplate.R
-import jp.gr.java.conf.tmproject.sampletemplate.databinding.FragmentNotificationsBinding
+import dagger.hilt.android.AndroidEntryPoint
+import jp.gr.java.conf.tmproject.samplecleanarchitecture.R
+import jp.gr.java.conf.tmproject.samplecleanarchitecture.databinding.FragmentNotificationsBinding
 
+@AndroidEntryPoint
 class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
 
     private var _binding: FragmentNotificationsBinding? = null

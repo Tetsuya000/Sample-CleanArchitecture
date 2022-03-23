@@ -6,13 +6,13 @@
     <data>
         <variable
             name="viewModel"
-            type="jp.gr.java.conf.tmproject.sampletemplate.ui.dashboard.DashboardViewModel" />
+            type="jp.gr.java.conf.tmproject.samplecleanarchitecture.presentation.ui.dashboard.DashboardViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.dashboard.DashboardFragment">
+        tools:context=".presentation.ui.dashboard.DashboardFragment">
 
         <TextView
             android:id="@+id/text_dashboard"
@@ -26,6 +26,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dashboard"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
