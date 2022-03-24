@@ -10,10 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleTemplate">
+
         <activity
-            android:name="jp.gr.java.conf.tmproject.samplecleanarchitecture.presentation.ui.main.MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:name="jp.gr.java.conf.tmproject.presentation.ui.main.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
