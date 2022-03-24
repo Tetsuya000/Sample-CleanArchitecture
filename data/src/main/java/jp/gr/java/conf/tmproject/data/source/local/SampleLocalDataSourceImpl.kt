@@ -11,7 +11,8 @@ import javax.inject.Inject
 
 class SampleLocalDataSourceImpl @Inject constructor(
     @ApplicationContext
-    private val context: Context) : SampleLocalDataSource {
+    private val context: Context
+) : SampleLocalDataSource {
 
     companion object {
         private val Context.dataStore by preferencesDataStore("sample")

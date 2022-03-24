@@ -1,4 +1,4 @@
-package jp.gr.java.conf.tmproject.presentation.ui.dashboard
+package jp.gr.java.conf.tmproject.presentation.notifications
 
 import android.os.Bundle
 import android.view.View
@@ -6,14 +6,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import jp.gr.java.conf.tmproject.presentation.R
-import jp.gr.java.conf.tmproject.presentation.databinding.FragmentDashboardBinding
+import jp.gr.java.conf.tmproject.presentation.databinding.FragmentNotificationsBinding
 
 @AndroidEntryPoint
-class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
+class NotificationsFragment : Fragment(R.layout.fragment_notifications) {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: DashboardViewModel by viewModels()
+    private val viewModel: NotificationsViewModel by viewModels()
 
     override fun onViewCreated(
         view: View,
@@ -21,7 +21,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentDashboardBinding.bind(view)
+        _binding = FragmentNotificationsBinding.bind(view)
         binding.also {
             it.viewModel = viewModel
             it.lifecycleOwner = this

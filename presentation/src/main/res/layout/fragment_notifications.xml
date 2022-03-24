@@ -6,13 +6,13 @@
     <data>
         <variable
             name="viewModel"
-            type="jp.gr.java.conf.tmproject.presentation.ui.notifications.NotificationsViewModel" />
+            type="jp.gr.java.conf.tmproject.presentation.notifications.NotificationsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="jp.gr.java.conf.tmproject.presentation.ui.notifications.NotificationsFragment">
+        tools:context=".notifications.NotificationsFragment">
 
         <TextView
             android:id="@+id/text_notifications"

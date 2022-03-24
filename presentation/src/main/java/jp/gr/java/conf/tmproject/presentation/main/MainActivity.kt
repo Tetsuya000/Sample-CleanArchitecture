@@ -1,4 +1,4 @@
-package jp.gr.java.conf.tmproject.presentation.ui.main
+package jp.gr.java.conf.tmproject.presentation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

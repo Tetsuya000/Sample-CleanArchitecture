@@ -1,4 +1,4 @@
-package jp.gr.java.conf.tmproject.presentation.ui.home
+package jp.gr.java.conf.tmproject.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +15,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getTextUseCase: GetTextUseCase,
-    private val updateTextUseCase: UpdateTextUseCase) : ViewModel() {
+    private val updateTextUseCase: UpdateTextUseCase
+) : ViewModel() {
 
     val textResource: StateFlow<String?> = getTextUseCase().stateIn(viewModelScope, SharingStarted.Eagerly, null)
     val editText: MutableStateFlow<String?> = MutableStateFlow(textResource.value)

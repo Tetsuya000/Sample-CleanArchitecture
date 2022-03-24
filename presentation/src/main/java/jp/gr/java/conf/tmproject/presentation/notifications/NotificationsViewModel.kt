@@ -1,4 +1,4 @@
-package jp.gr.java.conf.tmproject.presentation.ui.notifications
+package jp.gr.java.conf.tmproject.presentation.notifications
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

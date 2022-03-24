@@ -6,13 +6,13 @@
     <data>
         <variable
             name="viewModel"
-            type="jp.gr.java.conf.tmproject.presentation.ui.dashboard.DashboardViewModel" />
+            type="jp.gr.java.conf.tmproject.presentation.dashboard.DashboardViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="jp.gr.java.conf.tmproject.presentation.ui.dashboard.DashboardFragment">
+        tools:context=".dashboard.DashboardFragment">
 
         <TextView
             android:id="@+id/text_dashboard"

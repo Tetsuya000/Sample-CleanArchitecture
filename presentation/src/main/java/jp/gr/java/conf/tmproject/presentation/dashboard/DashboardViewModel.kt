@@ -1,4 +1,4 @@
-package jp.gr.java.conf.tmproject.presentation.ui.dashboard
+package jp.gr.java.conf.tmproject.presentation.dashboard
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

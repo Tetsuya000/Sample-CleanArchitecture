@@ -1,4 +1,4 @@
-package jp.gr.java.conf.tmproject.presentation.ui.home
+package jp.gr.java.conf.tmproject.presentation.home
 
 import android.os.Bundle
 import android.view.View
@@ -17,7 +17,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(
         view: View,
-        savedInstanceState: Bundle?) {
+        savedInstanceState: Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         _binding = FragmentHomeBinding.bind(view)

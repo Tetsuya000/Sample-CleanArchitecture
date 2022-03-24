@@ -8,7 +8,8 @@ import javax.inject.Inject
 
 class SampleRepositoryImpl @Inject constructor(
     private val sampleLocalDataSource: SampleLocalDataSource,
-    private val sampleRemoteDataSource: SampleRemoteDataSource) : SampleRepository {
+    private val sampleRemoteDataSource: SampleRemoteDataSource
+) : SampleRepository {
 
     override val text: Flow<String> = sampleLocalDataSource.text
 
