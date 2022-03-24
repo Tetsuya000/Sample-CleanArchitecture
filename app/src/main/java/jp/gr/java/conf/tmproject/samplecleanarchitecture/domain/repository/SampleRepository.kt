@@ -1,7 +1,8 @@
 package jp.gr.java.conf.tmproject.samplecleanarchitecture.domain.repository
 
-import jp.gr.java.conf.tmproject.samplecleanarchitecture.domain.model.Sample
+import kotlinx.coroutines.flow.Flow
 
 interface SampleRepository {
-    suspend fun fetch(id: Int): Sample
+    val text: Flow<String>
+    suspend fun updateText(text: String)
 }

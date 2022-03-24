@@ -1,3 +1,8 @@
 package jp.gr.java.conf.tmproject.samplecleanarchitecture.data.source.local
 
-interface SampleLocalDataSource
+import kotlinx.coroutines.flow.Flow
+
+interface SampleLocalDataSource {
+    val text: Flow<String>
+    suspend fun updateText(text: String)
+}

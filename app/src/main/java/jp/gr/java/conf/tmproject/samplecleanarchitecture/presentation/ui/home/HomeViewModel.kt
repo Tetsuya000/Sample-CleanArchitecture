@@ -3,23 +3,36 @@ package jp.gr.java.conf.tmproject.samplecleanarchitecture.presentation.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import jp.gr.java.conf.tmproject.samplecleanarchitecture.domain.repository.SampleRepository
+import jp.gr.java.conf.tmproject.samplecleanarchitecture.domain.usecase.GetTextUseCase
+import jp.gr.java.conf.tmproject.samplecleanarchitecture.domain.usecase.UpdateTextUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val sampleRepository: SampleRepository
+    private val getTextUseCase: GetTextUseCase,
+    private val updateTextUseCase: UpdateTextUseCase
 ) : ViewModel() {
 
-    private val text: MutableStateFlow<String> = MutableStateFlow("Home")
+    val textResource: StateFlow<String?> = getTextUseCase().stateIn(viewModelScope, SharingStarted.Eagerly, null)
+    val editText: MutableStateFlow<String?> = MutableStateFlow(textResource.value)
 
-    val result: MutableStateFlow<String> = MutableStateFlow("Result")
+    fun updateText() = viewModelScope.launch {
+        updateTextUseCase(editText.value ?: return@launch)
+    }
 
-    fun fetch() = viewModelScope.launch {
-        val id = (1..3).random()
-        val sample = sampleRepository.fetch(id)
-        result.value = sample.text
+    private fun loadText() = viewModelScope.launch {
+        getTextUseCase().collect {
+            editText.value = it
+        }
+    }
+
+    init {
+        loadText()
     }
 }
