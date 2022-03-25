@@ -11,7 +11,8 @@ class SampleRepositoryImpl @Inject constructor(
     private val sampleRemoteDataSource: SampleRemoteDataSource
 ) : SampleRepository {
 
-    override val text: Flow<String> = sampleLocalDataSource.text
+    override val text: Flow<String> =
+        sampleLocalDataSource.text
 
     override suspend fun updateText(text: String) {
         sampleLocalDataSource.updateText(text)
