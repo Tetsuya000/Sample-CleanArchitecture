@@ -6,27 +6,25 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import jp.gr.java.conf.tmproject.domain.usecase.GetTextUseCase
 import jp.gr.java.conf.tmproject.domain.usecase.UpdateTextUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getTextUseCase: GetTextUseCase,
-    private val updateTextUseCase: UpdateTextUseCase
-) : ViewModel() {
+    private val updateTextUseCase: UpdateTextUseCase) : ViewModel() {
 
-    val textResource: StateFlow<String?> = getTextUseCase().stateIn(viewModelScope, SharingStarted.Eagerly, null)
-    val editText: MutableStateFlow<String?> = MutableStateFlow(textResource.value)
+    val text: MutableStateFlow<String> = MutableStateFlow("")
+    val editText: MutableStateFlow<String> = MutableStateFlow("")
 
     fun updateText() = viewModelScope.launch {
-        updateTextUseCase(editText.value ?: return@launch)
+        if (editText.value.isBlank()) return@launch
+        updateTextUseCase(editText.value)
     }
 
     private fun loadText() = viewModelScope.launch {
         getTextUseCase().collect {
+            text.value = it
             editText.value = it
         }
     }
